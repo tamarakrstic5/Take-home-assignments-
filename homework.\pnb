@@ -12,3 +12,23 @@ lower_bound=5
 upper_bound=10
 mask = (a >= lower_bound) & (a <= upper_bound)
 filtered_elements = a[mask]
+url = 'https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data'
+iris_2d = np.genfromtxt(url, delimiter=',', dtype='float', usecols=[0, 1, 2, 3])
+condition = (iris_2d[:, 2] > 1.5) & (iris_2d[:, 0] < 5.0)
+filtered_iris = iris_2d[condition]
+print(filtered_iris)
+import pandas as pd
+df = pd.read_csv('https://raw.githubusercontent.com/selva86/datasets/master/Cars93_miss.csv')
+filtered_df = df.iloc[::20, [0, 1, 2]] 
+filtered_df.columns = ['Manufacturer', 'Model', 'Type']
+print(filtered_df)
+ds = pd.read_csv('https://raw.githubusercontent.com/selva86/datasets/master/Cars93_miss.csv')
+min_price_mean = ds['Min.Price'].mean()
+max_price_mean = ds['Max.Price'].mean()
+ds['Min.Price'].fillna(min_price_mean, inplace=True)
+ds['Max.Price'].fillna(max_price_mean, inplace=True)
+print(ds[['Min.Price', 'Max.Price']])
+dd = pd.DataFrame(np.random.randint(10, 40, 60).reshape(-1, 4))
+row_sums = dd.sum(axis=1)
+filtered_rows = dd[row_sums > 100]
+print(filtered_rows)
