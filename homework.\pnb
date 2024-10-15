@@ -1,0 +1,14 @@
+
+import numpy as np
+a=np.array([[1,2,3],[4,5,6]])
+b=np.array([[5,6,7],[8,9,10]])
+c=np.vstack((a,b))
+d=np.hstack((a,b))
+print(c)
+print(d)
+commonelements=np.intersect1d(a,b)
+print(commonelements)
+lower_bound=5
+upper_bound=10
+mask = (a >= lower_bound) & (a <= upper_bound)
+filtered_elements = a[mask]
