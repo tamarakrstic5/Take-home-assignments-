@@ -1,0 +1,28 @@
+SELECT COUNT(*) AS total_orders
+FROM SALES
+WHERE TO_CHAR( Date, 'YYYY-MM-DD') LIKE ('2023-03-18') ;
+
+SELECT COUNT(*) AS total_orders
+FROM SALES s
+JOIN customers c ON s.customer_id=c.customer_id
+WHERE TO_CHAR( Date, 'YYYY-MM-DD') LIKE ('2023-03-18') AND c.first_name='John' AND c.last_name='Doe';
+
+SELECT COUNT(DISTINCT s.customer_id) AS total_customers, AVG(Revenue) AS average_spent_per_customer
+FROM Customers c
+JOIN SALES s ON c.customer_id=s.customer_id
+WHERE TO_CHAR( Date, 'YYYY-MM-DD') LIKE ('2023-01-%') 
+GROUP BY s.customer_id ;
+
+SELECT i.department AS department, SUM(s.revenue) AS total_revenue
+FROM sales s
+JOIN items i ON s.item_id=i.item_id
+WHERE TO_CHAR( Date, 'YYYY-MM-DD') LIKE ('2022-%-%')
+GROUP BY i.department
+HAVING SUM(s.revenue)<600;
+
+SELECT MAX(revenue) AS max_revenue, MIN(revenue) AS min_revenue
+FROM sales;
+
+SELECT *
+FROM sales
+ORDER BY revenue DESC;
