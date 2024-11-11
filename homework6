@@ -1,0 +1,26 @@
+import pandas as pd
+from sklearn.preprocessing import StandardScaler, LabelEncoder
+X_test['job_years'] = X_test['job_years'].fillna(X_train['job_years'].mean())
+X_test['hours_per_week'] = X_test['hours_per_week'].fillna(X_train['hours_per_week'].mean())
+X_test['telecommute_days_per_week'] = X_test['telecommute_days_per_week'].fillna(X_train['telecommute_days_per_week'].mean())
+X_test['country'] = X_test['country'].fillna(X_train['country'].mode()[0])
+X_test['employment_status'] = X_test['employment_status'].fillna(X_train['employment_status'].mode()[0])
+X_test['job_title'] = X_test['job_title'].fillna(X_train['job_title'].mode()[0])
+X_test['is_manager'] = X_test['is_manager'].fillna(X_train['is_manager'].mode()[0])
+X_test['education'] = X_test['education'].fillna(X_train['education'].mode()[0])
+X_test['is_education_computer_related'] = X_test['is_education_computer_related'].fillna(X_train['is_education_computer_related'].mode()[0])
+X_test['certifications'] = X_test['certifications'].fillna(X_train['certifications'].mode()[0])
+X_test['timestamp'] = pd.to_datetime(X_test['timestamp'], format='%Y:%m:%d %H:%M:%S')
+X_test['day_of_week'] = X_test['timestamp'].dt.dayofweek
+X_test['month'] = X_test['timestamp'].dt.month
+X_test.drop('timestamp', axis=1, inplace=True)
+label_encoder = LabelEncoder()
+X_test['is_manager'] = label_encoder.fit_transform(X_test['is_manager'])
+X_test['is_education_computer_related'] = label_encoder.fit_transform(X_test['is_education_computer_related'])
+X_test['certifications'] = label_encoder.fit_transform(X_test['certifications'])
+X_test = pd.get_dummies(X_test, columns=['country', 'employment_status', 'job_title', 'education'], drop_first=True)
+scaler = StandardScaler()
+numerical_cols = ['job_years', 'hours_per_week', 'telecommute_days_per_week', 'salary']
+X_test[numerical_cols] = scaler.fit_transform(X_test[numerical_cols])
+y_pred = reg.predict(X_test)
+print("Predictions on Test Data:", y_pred)
