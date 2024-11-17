@@ -1,0 +1,31 @@
+   How do you assess the statistical significance of an insight?
+Statistican significance is the probability of the data, assuming that the null hypothesis is true is less than the chosen significance level. To assess it we use hyphotesis testing: 
+1)Defining the hypothesis 
+2)Exploring the data(EDA)
+3)Choosing statistical test
+4)Calculating test statistics
+5)Determining the p value
+6)Setting significance level
+7)Validating assumptions-make decisions, draw conclusions
+
+       What is the Central Limit Theorem? Explain it. Why is it important?
+The Central Limit Theorem (CLT) states that when you take a large number of random samples from a population, regardless of the original population's distribution, the distribution of the sample means will tend to be approximately normal (bell-shaped curve), which is extremely useful in statistics as it allows us to make inferences about a population using the well-known properties of the normal distribution, even if the original data isn't normally distributed, as long as the sample size is large enough; essentially, it makes statistical analysis much more accessible and reliable across various data types
+CLT is important since it simplifies analysis, enables approximation,and applies to various statistics.Because it works with various data types, even when the original population distribution is unknown, the CLT is widely used in various fields like market research, medical studies, and social sciences. The CLT allows us to assess the reliability of our estimates by providing confidence intervals based on the sample size. 
+
+       What is the statistical power?
+Statistical power is the probability that a statistical test will correctly reject the null hypothesis (H0) when the alternative hypothesis (Ha) is true. In other words, it measures the test's ability to detect a real effect or difference when it exists.
+
+      How do you control for biases?
+Randomization, blinding, control groups, use of validated instruments, pilot testing, sampling diversification, use of statistical adjustments, test for sensitivity, examining outliers, cross-validation.
+
+    What are confounding variables?
+Confounding variables are variables that influence both the independent variable (predictor) and the dependent variable (outcome), creating a false association or masking a true relationship between them. They can distort the apparent relationship, leading to incorrect conclusions about cause and effect.
+
+    What is A/B testing?
+A/B testing, also known as split testing, is a statistical method used to compare two versions of something (e.g., a webpage, marketing campaign, product feature) to determine which one performs better in achieving a specific goal. A/B testing is a powerful, straightforward way to optimize decisions, ensuring changes are based on measurable evidence rather than intuition.
+
+   What are confidence intervals?
+Confidence intervals (CIs) are a range of values that estimate an unknown population parameter (e.g., a mean, proportion, or difference between groups) with a specified level of confidence. They provide a measure of the precision and reliability of an estimate derived from a sample. A confidence interval is a range of values we are relatively sure our population statistic or parameter falls within. A confidence interval expresses the degree of uncertainty for a sample statistic of a larger population. 
+
+
+
